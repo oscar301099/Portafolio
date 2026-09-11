@@ -13,7 +13,7 @@ export function Experience() {
             Experiencia
           </p>
           <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            Mi trayectoria 🛠️
+            Mi trayectoria 
           </h2>
         </div>
 
