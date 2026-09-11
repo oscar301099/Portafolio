@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 const stack = [
+  "TypeScript",
   "Node.js",
   "NestJS",
   "React",
   "Next.js",
-  "TypeScript",
   "C#/.NET",
   "Python",
   "PostgreSQL",
@@ -31,7 +31,7 @@ const profileLinks = [
   {
     label: "Email",
     href: "mailto:oros.duran.oscar@gmail.com",
-    target: "_self",
+    target: "_blank",
   },
 {
   label: "Curriculum Vitae",
