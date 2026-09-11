@@ -13,7 +13,6 @@ export type Project = {
 
 // En este array centralizamos los proyectos para facilitar futuras incorporaciones.
 export const projects: Project[] = [
-  
   {
     id: "web-scraping-aduana",
     name: "Web Scraping Circulares Aduana",
@@ -21,7 +20,7 @@ export const projects: Project[] = [
     description:
       "Scraper del listado de circulares de la Aduana Nacional de Bolivia con paginación configurable, detección de duplicados por Circular + Fecha y almacenamiento en SQLite.",
     year: 2026,
-    githubUrl: "https://github.com/oscar301099/Portafolio",
+    githubUrl: "https://github.com/",
     demoUrl: "/circulares",
     image: "/proyectoCircularesImagen.png",
     accent: "from-emerald-500/25 via-teal-500/10 to-zinc-900",

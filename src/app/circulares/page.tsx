@@ -11,9 +11,9 @@ export const metadata: Metadata = {
     "Scraper de las circulares de la Aduana Nacional de Bolivia con detección de duplicados y paginación configurable.",
 };
 
-export default function CircularesPage() {
+export default async function CircularesPage() {
   const container = getContainer();
-  const items = container.getCirculares.execute();
+  const items = await container.getCirculares.execute();
 
   return (
     <main className="min-h-screen bg-[#050816] text-zinc-100">

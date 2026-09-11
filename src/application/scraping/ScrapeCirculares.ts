@@ -49,7 +49,7 @@ export class ScrapeCircularesUseCase {
       for (const item of items) {
         // El repositorio garantiza la unicidad (circular, fecha):
         // si ya existe, save() devuelve false y el registro se omite.
-        if (this.repository.save(item)) {
+        if (await this.repository.save(item)) {
           summary.inserted += 1;
         } else {
           summary.skipped += 1;

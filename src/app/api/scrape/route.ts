@@ -8,7 +8,7 @@ type ErrorResponse = { ok: false; error: string };
 export async function GET(): Promise<Response> {
   const container = getContainer();
   return Response.json({
-    total: container.getCirculares.count(),
+    total: await container.getCirculares.count(),
     totalPages: container.totalPages,
   });
 }

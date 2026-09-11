@@ -10,11 +10,11 @@ export interface CircularRepository {
    * Persiste una circular. Devuelve `true` si se insertó,
    * o `false` si ya existía y fue omitida (duplicado).
    */
-  save(circular: Circular): boolean;
+  save(circular: Circular): Promise<boolean>;
 
   /** Devuelve todas las circulares guardadas, de la más reciente a la más antigua. */
-  findAll(): StoredCircular[];
+  findAll(): Promise<StoredCircular[]>;
 
   /** Total de circulares almacenadas. */
-  count(): number;
+  count(): Promise<number>;
 }

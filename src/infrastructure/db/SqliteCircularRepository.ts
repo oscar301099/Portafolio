@@ -27,7 +27,7 @@ export class SqliteCircularRepository implements CircularRepository {
     this.db = getDbConnection();
   }
 
-  save(circular: Circular): boolean {
+  async save(circular: Circular): Promise<boolean> {
     const result = this.db
       .prepare(
         `INSERT OR IGNORE INTO circulares (nro, circular, fecha, tipo, resumen, enlace)
@@ -44,7 +44,7 @@ export class SqliteCircularRepository implements CircularRepository {
     return Number(result.changes) > 0;
   }
 
-  findAll(): StoredCircular[] {
+  async findAll(): Promise<StoredCircular[]> {
     const rows = this.db
       .prepare("SELECT * FROM circulares ORDER BY id DESC")
       .all() as unknown as CircularRow[];
@@ -63,7 +63,7 @@ export class SqliteCircularRepository implements CircularRepository {
     }));
   }
 
-  count(): number {
+  async count(): Promise<number> {
     const row = this.db
       .prepare("SELECT COUNT(*) AS total FROM circulares")
       .get() as { total: number };

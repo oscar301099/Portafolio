@@ -7,11 +7,11 @@ import type { StoredCircular } from "@/domain/circular/Circular";
 export class GetCircularesUseCase {
   constructor(private readonly repository: CircularRepository) {}
 
-  execute(): StoredCircular[] {
+  execute(): Promise<StoredCircular[]> {
     return this.repository.findAll();
   }
 
-  count(): number {
+  count(): Promise<number> {
     return this.repository.count();
   }
 }
