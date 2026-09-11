@@ -20,7 +20,7 @@ const stack = [
 const profileLinks = [
   {
     label: "GitHub",
-    href: "https://github.com/oscar-oros-duran",
+    href: "https://github.com/oscar301099",
     target: "_blank",
   },
   {

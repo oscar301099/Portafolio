@@ -1,5 +1,5 @@
 const links = [
-  { label: "GitHub", href: "https://github.com/oscar-oros-duran" },
+  { label: "GitHub", href: "https://github.com/oscar301099" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/oscar-oros-duran-02b815244" },
   { label: "Email", href: "mailto:oros.duran.oscar@gmail.com" },
 ];
