@@ -1,8 +1,8 @@
 import { GetCircularesUseCase } from "@/application/scraping/GetCirculares";
 import { ScrapeCircularesUseCase } from "@/application/scraping/ScrapeCirculares";
-import { LibsqlCircularRepository } from "@/infrastructure/db/LibsqlCircularRepository";
-import { SqliteCircularRepository } from "@/infrastructure/db/SqliteCircularRepository";
 import type { CircularRepository } from "@/domain/circular/CircularRepository";
+import { SqliteCircularRepository } from "@/infrastructure/db/SqliteCircularRepository";
+import { SupabaseCircularRepository } from "@/infrastructure/db/SupabaseCircularRepository";
 import { AduanaCircularesScraper } from "@/infrastructure/scraping/AduanaCircularesScraper";
 
 export type Container = {
@@ -14,14 +14,17 @@ export type Container = {
 
 /**
  * Elige el repositorio según el entorno:
- * - Con TURSO_DATABASE_URL configurada (producción/Vercel) → Turso (libsql),
- *   porque el filesystem serverless es de solo lectura.
- * - Sin ella (desarrollo local) → SQLite sobre el archivo circulares.db.
+ * - Con SUPABASE_URL y SUPABASE_SERVICE_ROLE_KEY configuradas (producción/
+ *   Vercel) → Supabase (Postgres), porque el filesystem serverless es de
+ *   solo lectura.
+ * - Sin ellas (desarrollo local) → SQLite sobre el archivo circulares.db.
  */
 function createRepository(): CircularRepository {
-  const url = process.env.TURSO_DATABASE_URL;
-  if (url) {
-    return new LibsqlCircularRepository(url, process.env.TURSO_AUTH_TOKEN);
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (url && key) {
+    return new SupabaseCircularRepository(url, key);
   }
   return new SqliteCircularRepository();
 }
