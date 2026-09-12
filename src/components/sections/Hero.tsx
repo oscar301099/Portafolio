@@ -45,7 +45,7 @@ export function Hero() {
     <section className="relative isolate overflow-hidden bg-[#050816] text-zinc-100">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(96,165,250,0.18),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(34,211,238,0.12),_transparent_28%)]" />
 
-      <div className="mx-auto max-w-6xl px-6 pb-16 pt-10 sm:px-8 lg:px-12 lg:pb-20 lg:pt-16">
+      <div className="mx-auto max-w-6xl px-4 pb-16 pt-10 sm:px-8 lg:px-12 lg:pb-20 lg:pt-16">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}

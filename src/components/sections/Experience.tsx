@@ -8,7 +8,7 @@ import { experience } from "@/data/experience";
 export function Experience() {
   return (
     <section className="bg-[#050816] px-4 py-16 sm:px-8 sm:py-20 lg:px-12">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <div className="mb-8 max-w-2xl sm:mb-12">
           <p className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-cyan-300/80">
             Experiencia

@@ -8,7 +8,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/10 bg-[#050816] px-6 py-8 text-zinc-300 sm:px-8 lg:px-12">
+    <footer className="border-t border-white/10 bg-[#050816] px-4 py-8 text-zinc-300 sm:px-8 lg:px-12">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
         <p className="text-sm">© {year} Oscar Oros Duran</p>
 

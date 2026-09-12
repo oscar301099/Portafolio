@@ -7,7 +7,7 @@ import { projects } from "@/data/projects";
 
 export function Projects() {
   return (
-    <section id="projects" className="bg-[#0a0f1f] px-6 py-20 sm:px-8 lg:px-12">
+    <section id="projects" className="bg-[#0a0f1f] px-4 py-20 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 max-w-2xl">
           <p className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-cyan-300/80">
