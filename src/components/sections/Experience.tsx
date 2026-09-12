@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 
+import { TechBadge } from "@/components/TechBadge";
 import { experience } from "@/data/experience";
 
 export function Experience() {
@@ -43,6 +44,14 @@ export function Experience() {
                 </div>
 
                 <p className="mt-4 text-sm leading-7 text-zinc-300">{item.description}</p>
+
+                {item.stack && item.stack.length > 0 && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {item.stack.map((tech) => (
+                      <TechBadge key={tech} name={tech} />
+                    ))}
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}

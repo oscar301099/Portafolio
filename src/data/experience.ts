@@ -3,16 +3,17 @@ export type ExperienceItem = {
   role: string;
   period: string;
   description: string;
+  stack?: string[];
 };
 
-// El historial se mantiene aquí para poder ordenarlo y actualizarlo sin tocar el JSX.
 export const experience: ExperienceItem[] = [
   {
     company: "Ágora",
     role: "Desarrollador de Software",
-    period: "Jul 2025 - Actualidad",
+    period: "Jul 2025 - Ago 2026",
     description:
       "Desarrollo de microservicios backend, integración de APIs REST, automatización de procesos con n8n y análisis de documentos con Azure Document AI.",
+    stack: ["C#", ".NET", "SQL Server","Node.js", "APIs REST", "n8n", "Python", "Azure Document AI"],
   },
   {
     company: "Souris",
@@ -20,6 +21,7 @@ export const experience: ExperienceItem[] = [
     period: "Ago 2024 - Nov 2024",
     description:
       "Desarrollo frontend con Next.js, pruebas unitarias con Jest y metodologías ágiles (Scrum).",
+    stack: ["Next.js", "Jest", "Scrum", "CI/CD"],
   },
   {
     company: "Ágora",
@@ -27,6 +29,7 @@ export const experience: ExperienceItem[] = [
     period: "Feb 2024 - Jun 2024",
     description:
       "Desarrollo de aplicaciones empresariales en .NET, integración con SQL Server.",
+    stack: ["C#", ".NET", "SQL Server"],
   },
   {
     company: "EduServer",
@@ -34,5 +37,6 @@ export const experience: ExperienceItem[] = [
     period: "Sep 2023 - Dic 2023",
     description:
       "Desarrollo de interfaces de usuario y funcionalidades front-end.",
+    stack: ["HTML", "CSS", "JavaScript","React"],
   },
 ];
