@@ -82,8 +82,7 @@ export function Hero() {
               </div>
 
               <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-300 sm:text-lg">
-                Construyo APIs, interfaces y automatizaciones que conectan sistemas y
-                simplifican procesos.
+                Desarrollo aplicaciones web, APIs e integraciones que automatizan procesos y conectan sistemas. Trabajo desde el frontend hasta el backend, bases de datos y automatización.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-3">
