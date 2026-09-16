@@ -143,9 +143,7 @@ export function Hero() {
                     target={item.target === "_blank" ? "_blank" : undefined}
                     rel={item.target === "_blank" ? "noopener noreferrer" : undefined}
                     className={
-                        item.label === "Email"
-                        ? "inline-flex items-center justify-center rounded-full border border-zinc-700 bg-zinc-900/60 px-4 py-2.5 text-sm font-medium text-white transition hover:border-cyan-400/60 hover:text-cyan-200"
-                        : "inline-flex items-center justify-center rounded-full bg-cyan-400 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
+                         "inline-flex items-center justify-center rounded-full bg-cyan-400 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
                     }
                     >
                     {item.label}
