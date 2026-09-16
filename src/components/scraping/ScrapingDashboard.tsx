@@ -63,10 +63,12 @@ export function ScrapingDashboard({ initialItems, totalPages }: Props) {
         </h1>
         <p className="mt-3 text-sm leading-6 text-zinc-400">
           Se extraen las columnas <span className="text-zinc-200">Nro, Circular, Fecha,
-          Tipo, Resumen y Enlace</span> del listado oficial. Antes de insertar se
-          verifica que la combinación <span className="text-zinc-200">Circular +
-          Fecha</span> no exista en la base de datos, así los registros repetidos se
-          omiten automáticamente.
+          Tipo, Resumen y Enlace</span> del listado oficial. La información permite
+          <span className="text-zinc-200"> facilitar la consulta y seguimiento de disposiciones aduaneras</span>,
+          identificar nuevas publicaciones y mantener un histórico organizado de las
+          circulares disponibles públicamente. Antes de insertar se verifica que la
+          combinación <span className="text-zinc-200">Circular + Fecha</span> no exista
+          en la base de datos, así los registros repetidos se omiten automáticamente.
         </p>
       </header>
 
