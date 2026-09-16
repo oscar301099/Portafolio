@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 const stack = [
@@ -16,7 +17,41 @@ const stack = [
   "Git",
   "N8N"
 ];
+function useTypewriter(
+  text: string,
+  speed: number = 80,
+  startDelay: number = 500
+) {
+  const [displayText, setDisplayText] = useState("");
+  const [started, setStarted] = useState(false);
 
+  useEffect(() => {
+    const startTimer = setTimeout(() => {
+      setStarted(true);
+    }, startDelay);
+
+    return () => clearTimeout(startTimer);
+  }, [startDelay]);
+
+  useEffect(() => {
+    if (!started) return;
+
+    let index = 0;
+
+    const timer = setInterval(() => {
+      setDisplayText(text.slice(0, index + 1));
+      index++;
+
+      if (index >= text.length) {
+        clearInterval(timer);
+      }
+    }, speed);
+
+    return () => clearInterval(timer);
+  }, [text, speed, started]);
+
+  return displayText;
+}
 const profileLinks = [
   {
     label: "GitHub",
@@ -41,6 +76,16 @@ const profileLinks = [
 ];
 
 export function Hero() {
+  const role = useTypewriter(
+    "Ingeniero en Sistemas · Full Stack Developer",
+    60,
+    800
+  );
+ const name = useTypewriter(
+    "Oscar Oros Duran",
+    60,
+    800
+  );
   return (
     <section className="relative isolate overflow-hidden bg-[#050816] text-zinc-100">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(96,165,250,0.18),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(34,211,238,0.12),_transparent_28%)]" />
@@ -73,13 +118,17 @@ export function Hero() {
               </p>
 
               <h1 className="max-w-xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Oscar Oros Duran
+                {name}
               </h1>
 
-              <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/50 px-3 py-2 text-sm text-zinc-200">
-                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)]" />
-                Ingeniero en Sistemas · Full Stack Developer
-              </div>
+             <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/50 px-3 py-2 text-sm text-zinc-200">
+              <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)]" />
+
+              <span>
+                {role}
+                <span className="ml-0.5 animate-pulse text-cyan-400">|</span>
+              </span>
+            </div>
 
               <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-300 sm:text-lg">
                 Desarrollo aplicaciones web, APIs e integraciones que automatizan procesos y conectan sistemas. Trabajo desde el frontend hasta el backend, bases de datos y automatización.
