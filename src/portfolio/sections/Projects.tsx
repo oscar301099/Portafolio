@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-import { projects } from "@/data/projects";
+import { projects } from "@/portfolio/data/projects";
 
 export function Projects() {
   return (

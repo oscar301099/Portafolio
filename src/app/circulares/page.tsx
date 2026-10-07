@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import { ScrapingDashboard } from "@/components/scraping/ScrapingDashboard";
-import { getContainer } from "@/container";
+import { ScrapingDashboard } from "@/modules/circulares/ui/ScrapingDashboard";
+import { getContainer } from "@/modules/circulares/container";
 
 export const dynamic = "force-dynamic";
 

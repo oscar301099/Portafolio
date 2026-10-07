@@ -1,7 +1,7 @@
 import type {
   CircularRepository,
-} from "@/domain/circular/CircularRepository";
-import type { StoredCircular } from "@/domain/circular/Circular";
+} from "@/modules/circulares/domain/circular/CircularRepository";
+import type { StoredCircular } from "@/modules/circulares/domain/circular/Circular";
 
 /** Caso de uso: consultar las circulares ya almacenadas. */
 export class GetCircularesUseCase {

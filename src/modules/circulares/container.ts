@@ -1,9 +1,9 @@
-import { GetCircularesUseCase } from "@/application/scraping/GetCirculares";
-import { ScrapeCircularesUseCase } from "@/application/scraping/ScrapeCirculares";
-import type { CircularRepository } from "@/domain/circular/CircularRepository";
-import { SqliteCircularRepository } from "@/infrastructure/db/SqliteCircularRepository";
-import { SupabaseCircularRepository } from "@/infrastructure/db/SupabaseCircularRepository";
-import { AduanaCircularesScraper } from "@/infrastructure/scraping/AduanaCircularesScraper";
+import { GetCircularesUseCase } from "@/modules/circulares/application/scraping/GetCirculares";
+import { ScrapeCircularesUseCase } from "@/modules/circulares/application/scraping/ScrapeCirculares";
+import type { CircularRepository } from "@/modules/circulares/domain/circular/CircularRepository";
+import { SqliteCircularRepository } from "@/modules/circulares/infrastructure/db/SqliteCircularRepository";
+import { SupabaseCircularRepository } from "@/modules/circulares/infrastructure/db/SupabaseCircularRepository";
+import { AduanaCircularesScraper } from "@/modules/circulares/infrastructure/scraping/AduanaCircularesScraper";
 
 export type Container = {
   getCirculares: GetCircularesUseCase;

@@ -1,7 +1,7 @@
-import { Experience } from "@/components/sections/Experience";
-import { Footer } from "@/components/sections/Footer";
-import { Hero } from "@/components/sections/Hero";
-import { Projects } from "@/components/sections/Projects";
+import { Experience } from "@/portfolio/sections/Experience";
+import { Footer } from "@/portfolio/sections/Footer";
+import { Hero } from "@/portfolio/sections/Hero";
+import { Projects } from "@/portfolio/sections/Projects";
 
 export default function Home() {
   return (

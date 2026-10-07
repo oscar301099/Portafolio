@@ -4,8 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import type { StoredCircular } from "@/domain/circular/Circular";
-import type { ScrapeSummary } from "@/application/scraping/ScrapeCirculares";
+import type { StoredCircular } from "@/modules/circulares/domain/circular/Circular";
+import type { ScrapeSummary } from "@/modules/circulares/application/scraping/ScrapeCirculares";
 
 type Props = {
   initialItems: StoredCircular[];

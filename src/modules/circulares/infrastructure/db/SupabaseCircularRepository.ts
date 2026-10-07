@@ -1,7 +1,7 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
-import type { Circular, StoredCircular } from "@/domain/circular/Circular";
-import type { CircularRepository } from "@/domain/circular/CircularRepository";
+import type { Circular, StoredCircular } from "@/modules/circulares/domain/circular/Circular";
+import type { CircularRepository } from "@/modules/circulares/domain/circular/CircularRepository";
 
 /**
  * Implementación del repositorio sobre Supabase (Postgres).

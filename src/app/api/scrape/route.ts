@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 
-import { ScrapeValidationError } from "@/application/scraping/ScrapeCirculares";
-import { getContainer } from "@/container";
+import { ScrapeValidationError } from "@/modules/circulares/application/scraping/ScrapeCirculares";
+import { getContainer } from "@/modules/circulares/container";
 
 type ErrorResponse = { ok: false; error: string };
 

@@ -1,5 +1,5 @@
-import type { CircularSource } from "@/application/ports/CircularSource";
-import type { CircularRepository } from "@/domain/circular/CircularRepository";
+import type { CircularSource } from "@/modules/circulares/application/ports/CircularSource";
+import type { CircularRepository } from "@/modules/circulares/domain/circular/CircularRepository";
 
 export type ScrapeSummary = {
   pagesProcessed: number;

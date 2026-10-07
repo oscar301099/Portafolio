@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 
-import { TechBadge } from "@/components/TechBadge";
-import { experience } from "@/data/experience";
+import { TechBadge } from "@/portfolio/components/TechBadge";
+import { experience } from "@/portfolio/data/experience";
 
 export function Experience() {
   return (

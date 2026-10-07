@@ -1,4 +1,4 @@
-import type { Circular } from "@/domain/circular/Circular";
+import type { Circular } from "@/modules/circulares/domain/circular/Circular";
 
 /**
  * Puerto de salida que la aplicación usa para obtener circulares del exterior

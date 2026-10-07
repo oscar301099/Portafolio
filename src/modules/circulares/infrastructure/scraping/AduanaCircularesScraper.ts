@@ -1,7 +1,7 @@
 import * as cheerio from "cheerio";
 
-import type { CircularSource } from "@/application/ports/CircularSource";
-import type { Circular } from "@/domain/circular/Circular";
+import type { CircularSource } from "@/modules/circulares/application/ports/CircularSource";
+import type { Circular } from "@/modules/circulares/domain/circular/Circular";
 
 const BASE_URL = "https://www.aduana.gob.bo/NOR_circulares";
 
