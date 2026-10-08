@@ -21,6 +21,21 @@ const REQUEST_DELAY_MS = 250;
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
+ * Convierte el href del sitio en una URL absoluta y solo acepta http(s):
+ * los enlaces se muestran a los visitantes, así que un href inesperado
+ * (javascript:, data:, etc.) se descarta en lugar de guardarse.
+ */
+function toSafeUrl(href: string | undefined): string {
+  if (!href) return "";
+  try {
+    const url = new URL(href, BASE_URL);
+    return url.protocol === "https:" || url.protocol === "http:" ? url.href : "";
+  } catch {
+    return "";
+  }
+}
+
+/**
  * Fuente de circulares que extrae los datos del sitio web de la
  * Aduana Nacional de Bolivia (fetch + cheerio).
  */
@@ -60,7 +75,7 @@ export class AduanaCircularesScraper implements CircularSource {
         fecha: $(tds[2]).find("time").text().trim(),
         tipo: $(tds[3]).text().trim(),
         resumen: $(tds[4]).text().replace(/\s+/g, " ").trim(),
-        enlace: $(tds[5]).find("a").attr("href") ?? "",
+        enlace: toSafeUrl($(tds[5]).find("a").attr("href")),
       });
     });
 

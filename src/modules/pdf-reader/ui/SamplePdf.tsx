@@ -25,11 +25,12 @@ export function SamplePdf({ disabled, onTry }: Props) {
         </div>
 
         <div className="flex flex-wrap items-center gap-4 text-sm">
+          {/* En móvil la vista previa no se ofrece (ver comentario del iframe). */}
           <button
             type="button"
             onClick={() => setVisible((v) => !v)}
             aria-expanded={visible}
-            className="font-medium text-zinc-200 transition hover:text-white"
+            className="hidden font-medium text-zinc-200 transition hover:text-white sm:inline"
           >
             {visible ? content.sample.hide : content.sample.show}
           </button>
@@ -59,11 +60,13 @@ export function SamplePdf({ disabled, onTry }: Props) {
         </div>
       </div>
 
+      {/* La mayoría de navegadores móviles no muestran PDFs dentro de un iframe
+          (queda un recuadro vacío); ahí se usa "Abrir en otra pestaña". */}
       {visible && (
         <iframe
           src={sampleUrl}
           title={content.sample.frameTitle}
-          className="h-[70vh] min-h-[420px] w-full border-t border-white/10 bg-white"
+          className="hidden h-[70vh] min-h-105 w-full border-t border-white/10 bg-white sm:block"
         />
       )}
     </section>

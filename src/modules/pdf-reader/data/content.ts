@@ -50,6 +50,7 @@ export const content = {
     noFile: "Selecciona un archivo PDF.",
     notPdf: "El archivo no es un PDF válido.",
     tooLarge: (maxMb: number) => `El archivo supera el límite de ${maxMb} MB.`,
+    tooManyPages: (max: number) => `El PDF tiene demasiadas páginas (máximo ${max}).`,
     unreadable: "No se pudo leer el contenido del PDF.",
     noText: "El PDF no contiene texto seleccionable (¿es un documento escaneado?).",
     network: "No se pudo contactar con el servidor.",

@@ -10,11 +10,16 @@ const amountFormat = new Intl.NumberFormat(settings.locale, {
 const formatAmount = (value: number | null) =>
   value === null ? "—" : amountFormat.format(value);
 
-const rowStyles: Record<RowKind, string> = {
-  heading: "pt-5 text-xs font-semibold uppercase tracking-[0.16em] text-cyan-300/80",
-  group: "font-medium text-zinc-100",
-  item: "pl-8 text-zinc-400",
-  total: "border-t border-white/10 font-semibold text-white",
+// El padding no aplica sobre <tr>: el estilo de la fila va en `row` y la
+// sangría/espaciado de la celda de la cuenta va en `label`.
+const rowStyles: Record<RowKind, { row: string; label: string }> = {
+  heading: {
+    row: "text-xs font-semibold uppercase tracking-[0.16em] text-cyan-300/80",
+    label: "pt-5",
+  },
+  group: { row: "font-medium text-zinc-100", label: "" },
+  item: { row: "text-zinc-400", label: "pl-8 sm:pl-10" },
+  total: { row: "border-t border-white/10 font-semibold text-white", label: "" },
 };
 
 const statusStyles: Record<CheckStatus, string> = {
@@ -40,26 +45,30 @@ export function StatementCard({ statement }: { statement: ExtractedStatement }) 
         </div>
       </header>
 
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[480px] text-left text-sm">
-          <thead>
-            <tr className="border-b border-white/10 text-xs uppercase tracking-[0.14em] text-zinc-500">
-              <th className="px-5 py-3 font-medium">{content.results.account}</th>
-              <th className="px-5 py-3 text-right font-medium">{content.results.amount}</th>
+      {/* Dos columnas caben en cualquier ancho: la cuenta se ajusta en varias
+          líneas y el monto nunca se corta, así no hace falta scroll horizontal. */}
+      <table className="w-full table-fixed text-left text-sm">
+        <thead>
+          <tr className="border-b border-white/10 text-xs uppercase tracking-[0.14em] text-zinc-500">
+            <th className="px-4 py-3 font-medium sm:px-5">{content.results.account}</th>
+            <th className="w-32 px-4 py-3 text-right font-medium sm:w-40 sm:px-5">
+              {content.results.amount}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {statement.rows.map((row, index) => (
+            <tr key={`${row.label}-${index}`} className={rowStyles[row.kind].row}>
+              <td className={`wrap-break-word px-4 py-2 sm:px-5 ${rowStyles[row.kind].label}`}>
+                {row.label}
+              </td>
+              <td className="whitespace-nowrap px-4 py-2 text-right align-top tabular-nums sm:px-5">
+                {row.kind === "heading" ? "" : formatAmount(row.amount)}
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {statement.rows.map((row, index) => (
-              <tr key={`${row.label}-${index}`} className={rowStyles[row.kind]}>
-                <td className="px-5 py-2">{row.label}</td>
-                <td className="whitespace-nowrap px-5 py-2 text-right tabular-nums">
-                  {row.kind === "heading" ? "" : formatAmount(row.amount)}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
 
       {statement.checks.length > 0 && (
         <div className="border-t border-white/10 px-5 py-4">
@@ -70,7 +79,7 @@ export function StatementCard({ statement }: { statement: ExtractedStatement }) 
             {statement.checks.map((check) => (
               <li
                 key={check.label}
-                className="flex flex-col gap-1 rounded-lg border border-white/5 bg-white/[0.02] px-3 py-2 text-sm sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+                className="flex flex-col gap-1 rounded-lg border border-white/5 bg-white/2 px-3 py-2 text-sm sm:flex-row sm:items-center sm:justify-between sm:gap-4"
               >
                 <span className="text-zinc-200">{check.label}</span>
                 <span className="flex flex-wrap items-center gap-3 text-xs text-zinc-400">

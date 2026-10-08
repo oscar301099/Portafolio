@@ -17,7 +17,11 @@ export default async function CircularesPage() {
 
   return (
     <main className="min-h-screen bg-[#050816] text-zinc-100">
-      <ScrapingDashboard initialItems={items} totalPages={container.totalPages} />
+      <ScrapingDashboard
+        initialItems={items}
+        totalPages={container.totalPages}
+        publicMaxPages={container.publicMaxPages}
+      />
     </main>
   );
 }

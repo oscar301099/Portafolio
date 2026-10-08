@@ -1,17 +1,14 @@
 import { content } from "@/modules/pdf-reader/data/content";
-import { extractFromPdf, PdfReaderError } from "@/modules/pdf-reader/extract";
+import { extractFromPdf, PdfReaderError, readPdfUpload } from "@/modules/pdf-reader/extract";
+
+// Corta ejecuciones largas en plataformas que respetan este límite (p. ej. Vercel).
+export const maxDuration = 30;
 
 type ErrorResponse = { ok: false; error: string };
 
 export async function POST(request: Request): Promise<Response> {
   try {
-    const form = await request.formData().catch(() => null);
-    const file = form?.get("file");
-
-    if (!(file instanceof File)) {
-      throw new PdfReaderError(content.errors.noFile);
-    }
-
+    const file = await readPdfUpload(request);
     const result = await extractFromPdf(file);
     return Response.json({ ok: true, result });
   } catch (error) {

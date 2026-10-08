@@ -30,6 +30,7 @@ siguiente y lee su configuración de `data/`.
 | Una cuenta aparece con otro nombre          | `aliases` del campo en `statements.ts`  |
 | Nueva verificación                          | `checks` del estado en `statements.ts`  |
 | Montos con otro formato (1,234.56)          | `numberFormat` en `settings.ts`         |
+| Límite de tamaño o de páginas del PDF       | `maxFileSizeMb` / `maxPages` en `settings.ts` |
 | Nuevo dato del encabezado (NIT, empresa…)   | `documentMetadata` en `settings.ts`     |
 | Cambiar textos o mensajes                   | `content.ts`                            |
 

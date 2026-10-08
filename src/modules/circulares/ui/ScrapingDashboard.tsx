@@ -10,9 +10,11 @@ import type { ScrapeSummary } from "@/modules/circulares/application/scraping/Sc
 type Props = {
   initialItems: StoredCircular[];
   totalPages: number;
+  /** Tope de páginas por ejecución para visitantes de la demo pública. */
+  publicMaxPages: number;
 };
 
-export function ScrapingDashboard({ initialItems, totalPages }: Props) {
+export function ScrapingDashboard({ initialItems, totalPages, publicMaxPages }: Props) {
   const router = useRouter();
   const [maxPages, setMaxPages] = useState(1);
   const [running, setRunning] = useState(false);
@@ -84,7 +86,8 @@ export function ScrapingDashboard({ initialItems, totalPages }: Props) {
             id="maxPages"
             type="number"
             min={1}
-            max={totalPages}
+            max={publicMaxPages}
+            step={1}
             value={maxPages}
             onChange={(e) => setMaxPages(Number(e.target.value))}
             disabled={running}
@@ -92,6 +95,7 @@ export function ScrapingDashboard({ initialItems, totalPages }: Props) {
           />
           <p className="mt-1 text-xs text-zinc-500">
             El sitio tiene {totalPages} páginas en total (50 circulares por página).
+            En esta demo pública se pueden scrapear hasta {publicMaxPages} por ejecución.
           </p>
         </div>
 

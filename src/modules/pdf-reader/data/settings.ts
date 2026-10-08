@@ -6,6 +6,9 @@ export const settings = {
   /** Tamaño máximo del archivo (Vercel limita el body de una función a ~4,5 MB). */
   maxFileSizeMb: 4,
 
+  /** Páginas máximas por PDF (protege la CPU del servidor; un estado financiero ocupa pocas). */
+  maxPages: 20,
+
   /** PDF de ejemplo con el que se desarrolló la demo (ruta relativa a /public). */
   samplePdf: {
     path: "/balance general ejemplo.pdf",

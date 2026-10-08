@@ -10,7 +10,17 @@ export type Container = {
   scrapeCirculares: ScrapeCircularesUseCase;
   /** Total de páginas del listado en el sitio origen (para la UI). */
   totalPages: number;
+  /** Páginas por ejecución permitidas a visitantes sin token (demo pública). */
+  publicMaxPages: number;
 };
+
+/** Tope por defecto para visitantes anónimos; configurable con SCRAPE_PUBLIC_MAX_PAGES. */
+const DEFAULT_PUBLIC_MAX_PAGES = 3;
+
+function readPublicMaxPages(): number {
+  const value = Number(process.env.SCRAPE_PUBLIC_MAX_PAGES);
+  return Number.isInteger(value) && value >= 1 ? value : DEFAULT_PUBLIC_MAX_PAGES;
+}
 
 /**
  * Elige el repositorio según el entorno:
@@ -42,6 +52,7 @@ export function getContainer(): Container {
       getCirculares: new GetCircularesUseCase(repository),
       scrapeCirculares: new ScrapeCircularesUseCase(source, repository),
       totalPages: source.totalPages,
+      publicMaxPages: Math.min(readPublicMaxPages(), source.totalPages),
     };
   }
 
