@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import { ScrollableText } from "./ScrollableText";
 import type { StoredCircular } from "@/modules/circulares/domain/circular/Circular";
 import type { ScrapeSummary } from "@/modules/circulares/application/scraping/ScrapeCirculares";
 
@@ -172,11 +173,13 @@ export function ScrapingDashboard({ initialItems, totalPages, publicMaxPages }: 
                     <td className="whitespace-nowrap px-4 py-3 text-zinc-300">
                       {item.tipo}
                     </td>
-                    <td
-                      className="max-w-md px-4 py-3 text-zinc-400 line-clamp-3"
-                      title={item.resumen}
-                    >
-                      {item.resumen}
+                    <td className="w-md px-4 py-3 text-zinc-400">
+                      {/* Ancho fijo y alto máximo: los resúmenes largos se leen con
+                          un mini-scroll y todas las filas mantienen el mismo tamaño. */}
+                      <ScrollableText
+                        text={item.resumen}
+                        label={`Resumen de la circular ${item.circular}`}
+                      />
                     </td>
                     <td className="px-4 py-3">
                       {item.enlace ? (
