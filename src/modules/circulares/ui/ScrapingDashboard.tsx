@@ -155,12 +155,14 @@ export function ScrapingDashboard({ initialItems, totalPages, publicMaxPages }: 
                   </td>
                 </tr>
               ) : (
-                initialItems.map((item) => (
+                // Nro = posición actual en el listado (como en el sitio). El `nro`
+                // guardado era la posición el día del scraping y ya no es fiable.
+                initialItems.map((item, index) => (
                   <tr
                     key={item.id}
                     className="border-b border-white/5 align-top transition last:border-0 hover:bg-white/[0.03]"
                   >
-                    <td className="px-4 py-3 text-zinc-500">{item.nro}</td>
+                    <td className="px-4 py-3 text-zinc-500">{index + 1}</td>
                     <td className="whitespace-nowrap px-4 py-3 font-medium text-zinc-100">
                       {item.circular}
                     </td>
